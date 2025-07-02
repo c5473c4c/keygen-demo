@@ -15,7 +15,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
         <jackson.version>2.19.1</jackson.version>
-        <logback.version>1.5.18</logback.version>
         <org.json.version>20250517</org.json.version>
     </properties>
 
@@ -44,11 +43,11 @@
             <version>${org.json.version}</version>
         </dependency>
 
-        <!-- Logback for logging -->
+        <!-- SLF4J Simple for logging -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.16</version>
         </dependency>
     </dependencies>
 
