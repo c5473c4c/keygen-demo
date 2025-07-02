@@ -60,9 +60,15 @@ public class MachineFingerprint {
 
             while (networkInterfaces.hasMoreElements()) {
                 NetworkInterface network = networkInterfaces.nextElement();
+                String name = network.getName().toLowerCase();
 
-                // Skip loopback and virtual interfaces
-                if (network.isLoopback() || network.isVirtual()) {
+                // Skip loopback, virtual, and unstable macOS interfaces
+                if (network.isLoopback() || network.isVirtual() || 
+                    name.startsWith("utun") || // VPN tunnels
+                    name.equals("awdl0") ||     // Apple Wireless Direct Link (AirDrop)
+                    name.equals("llw0") ||      // Low Latency WLAN
+                    name.startsWith("bridge") || // Bridge interfaces
+                    network.isPointToPoint()) {  // Point-to-point interfaces
                     continue;
                 }
 
