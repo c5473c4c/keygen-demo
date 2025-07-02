@@ -4,7 +4,7 @@ A Java demo application that authenticates and validates license keys using the 
 
 ## Prerequisites
 
-- Java 23 or later
+- Java 21 or later
 - Maven 3.x
 - A Keygen.sh account (get one at https://keygen.sh)
 
