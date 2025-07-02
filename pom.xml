@@ -7,48 +7,71 @@
     <groupId>org.example</groupId>
     <artifactId>keygen-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>Keygen Demo</name>
+    <description>Demo project for key generation using Java and Maven</description>
+    <url>https://github.com/org.example/keygen-demo</url>
 
     <properties>
-        <maven.compiler.release>23</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>23</maven.compiler.release>
+        <jackson.version>2.19.1</jackson.version>
+        <logback.version>1.5.18</logback.version>
+        <org.json.version>20250517</org.json.version>
     </properties>
 
     <dependencies>
-        <!-- Jackson Core -->
+        <!-- Jackson for JSON processing -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.17.1</version>
+            <version>${jackson.version}</version>
         </dependency>
-
-        <!-- Jackson Databind (ObjectMapper) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.17.1</version>
+            <version>${jackson.version}</version>
         </dependency>
-
-        <!-- Jackson Annotations (optional but commonly used) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.17.1</version>
+            <version>${jackson.version}</version>
         </dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <!-- org.json for JSON manipulation -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>20250517</version>
+            <version>${org.json.version}</version>
         </dependency>
 
-        <!-- Logback Classic (includes core and SLF4J) -->
+        <!-- Logback for logging -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.5.6</version>
+            <version>${logback.version}</version>
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <!-- Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.0</version>
+                <configuration>
+                    <source>${maven.compiler.release}</source>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub c5473c4c Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/c5473c4c/keygen-demo</url>
+        </repository>
+    </distributionManagement>
 </project>
